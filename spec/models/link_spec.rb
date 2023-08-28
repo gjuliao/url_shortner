@@ -2,13 +2,24 @@ require 'rails_helper'
 
 RSpec.describe Link, type: :model do
   
-    it 'always have a url' do
+    it 'always have a valid url' do
         link = Link.new(
             original_url: 'http://example.com/breakfast',
             lookup_code: '12345'
         )
 
         link.save
+        expect(link.valid?).to be(true)
+    end
+
+    it 'always have a invalid if url is not formatted properly' do
+        link = Link.new(
+            original_url: 'asdfasdfasdfasdf',
+            lookup_code: '12345'
+        )
+
+        link.save
+        expect(link.valid?).to be(false)
     end
 
     it 'always have a url' do

@@ -1,6 +1,13 @@
+<%= form_for @link, remote: true do |f| %>
+  <%= f.text_field :original_url %>
+  <%= f.submit 'Create Code' %>
+<% end %>
+
+
 <h1>All Links</h1>
 <ul>
   <% @links.each do |link| %>
     <li><%= link.original_url %></li>
+    <li><%= link.lookup_code %></li>
   <% end %>
 </ul>
