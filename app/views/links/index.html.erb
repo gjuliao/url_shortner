@@ -1,13 +1,15 @@
-<%= form_for @link, remote: true do |f| %>
-  <%= f.text_field :original_url %>
+<%= form_with model: @link, remote: true do |f| %>
+  <%= f.text_field :original_url, placeholder: "Write URL here" %>
   <%= f.submit 'Create Code' %>
 <% end %>
 
 
 <h1>All Links</h1>
-<ul class="flex">
+<ul>
   <% @links.each do |link| %>
-  <li><%= link.original_url %></li>
+  <div class="flex-container">
+    <li><%= link.original_url %></li>
     <li><%= link.shortened_url %></li>
+  </div>
   <% end %>
 </ul>
