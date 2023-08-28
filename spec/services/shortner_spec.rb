@@ -9,7 +9,7 @@ RSpec.describe Shortner do
         expect(shortner.lookup_code.length).to eq (5)
     end
 
-    it 'shortens given unique 5 characters url' do
+    it 'gives url unique 5 characters code' do
         url = 'http://example.com/how-to-bake'
         shortner = Shortner.new(url)
         code_one = shortner.lookup_code
@@ -19,7 +19,18 @@ RSpec.describe Shortner do
         code_two = shortner.lookup_code
 
         expect(code_two).not_to eq(code_one)
-        
+    end
+
+    it 'gives same code to same url' do
+        url = 'http://example.com/how-to-bake'
+        shortner = Shortner.new(url)
+        code_one = shortner.lookup_code
+
+        url = 'http://example.com/how-to-bake'
+        shortner = Shortner.new(url)
+        code_two = shortner.lookup_code
+
+        expect(code_one).not_to eq(code_two)
     end
 
     it 'generates Link with new unique code' do

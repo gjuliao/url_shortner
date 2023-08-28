@@ -42,12 +42,14 @@ RSpec.describe Link, type: :model do
             lookup_code: '12345'
         )
 
+        link_one.save
+
         link_two = Link.new(
             original_url: 'http://example.com/breakfast',
             lookup_code: '12345'
         )
 
-        expect(link_two.valid?).to be(true)
+        expect(link_two.valid?).to be(false)
         
     end
 
