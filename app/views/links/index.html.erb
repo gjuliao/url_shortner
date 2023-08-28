@@ -5,9 +5,9 @@
 
 
 <h1>All Links</h1>
-<ul>
+<ul class="flex">
   <% @links.each do |link| %>
-    <li><%= link.original_url %></li>
-    <li><%= link.lookup_code %></li>
+  <li><%= link.original_url %></li>
+    <li><%= link.shortened_url %></li>
   <% end %>
 </ul>
