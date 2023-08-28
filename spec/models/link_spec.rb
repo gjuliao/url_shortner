@@ -17,8 +17,6 @@ RSpec.describe Link, type: :model do
             original_url: 'asdfasdfasdfasdf',
             lookup_code: '12345'
         )
-
-        link.save
         expect(link.valid?).to be(false)
     end
 
