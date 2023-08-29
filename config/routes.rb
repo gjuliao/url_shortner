@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
 root "links#index"
 
- resources :links, only: [:index, :create, :show]
+ resources :links, only: [:index, :create, :show] do
+    resources :likes
+ end
 
  get '/:lookup_code' => 'links#show'
 
