@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 root "links#index"
 
  resources :links, only: [:index, :create, :show] do
-    resources :likes
+    resources :clicks, only: [:create]
  end
 
  get '/:lookup_code' => 'links#show'
+
+ post '/link/clicks/new', to: 'clicks#create'
 
 end

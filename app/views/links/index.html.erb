@@ -1,4 +1,4 @@
-<%= form_with model: @link, remote: true do |f| %>
+<%= form_with model: @link do |f| %>
   <%= f.text_field :original_url, placeholder: "Write URL here" %>
   <%= f.submit 'Create Code' %>
 <% end %>
@@ -9,7 +9,10 @@
   <% @links.each do |link| %>
   <div class="flex-container">
     <li><%= link.original_url %></li>
-    <li><%= link.shortened_url %></li>
+    <%= form_with model: @click, url: link_clicks_path(link), method: :post, data: { turbo: false } do |f| %>
+      <%= f.submit link.shortened_url %>
+    <% end %>
+    <li><%= link.click_count %></li>
   </div>
   <% end %>
 </ul>

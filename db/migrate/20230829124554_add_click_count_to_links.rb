@@ -1,5 +1,5 @@
 class AddClickCountToLinks < ActiveRecord::Migration[7.0]
   def change
-    add_column :links, :click_count, :integer
+    add_column :links, :click_count, :integer, default: 0
   end
 end

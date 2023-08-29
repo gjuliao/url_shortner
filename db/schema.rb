@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_124554) do
     t.string "original_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "click_count"
+    t.integer "click_count", default: 0
   end
 
   add_foreign_key "clicks", "links"
