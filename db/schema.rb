@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_25_213622) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_123344) do
+  create_table "clicks", force: :cascade do |t|
+    t.integer "link_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["link_id"], name: "index_clicks_on_link_id"
+  end
+
   create_table "links", force: :cascade do |t|
     t.string "lookup_code"
     t.string "original_url"
@@ -18,4 +25,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_213622) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "clicks", "links"
 end
