@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Link Redirect', type: :request do
+RSpec.describe 'Links', type: :request do
     
     it 'new shortened url redirects to original url' do
         url = 'http://example.com'
